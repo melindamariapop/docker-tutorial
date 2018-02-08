@@ -1,0 +1,32 @@
+version: '2.1'
+
+services:
+  php-fpm:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: docker-tutorial-php-fpm
+      working_dir: /var/www/tutorial
+      volumes:
+        - /var/www/tutorial
+
+  web-server:
+    image: nginx:latest
+    ports:
+      - "8881:80"
+    container_name: docker-tutorial-web-server
+    working_dir: /var/www/tutorial
+    volumes:
+      - ./webserver/site.conf:/etc/nginx/conf.d/default.conf
+    volumes_from:
+      - php-fpm
+
+  mysql:
+    image: mysql:8.0
+    container_name: docker-tutorial-mysql
+    working_dir: /var/www/tutorial
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=docker-tutorial
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root

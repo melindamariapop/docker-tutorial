@@ -1,0 +1,9 @@
+
+###> symfony/framework-bundle ###
+/sf/.env
+/sf/public/bundles/
+/sf/var/
+/sf/vendor/
+/.idea/
+
+###< symfony/framework-bundle ###
