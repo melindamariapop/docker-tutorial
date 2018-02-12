@@ -11,7 +11,7 @@ services:
         - /var/www/tutorial
 
   web-server:
-    image: nginx:latest
+    build: ./webserver
     ports:
       - "8881:80"
     container_name: docker-tutorial-web-server
