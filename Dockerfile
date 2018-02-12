@@ -1,5 +1,10 @@
 FROM php:7.2-fpm
 
+# Xdebug
+RUN pecl install xdebug-alpha \
+        && docker-php-ext-enable xdebug
+ADD ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 RUN apt-get update && apt-get install -y curl git zip unzip nano --no-install-recommends
 
 RUN apt-get update \
