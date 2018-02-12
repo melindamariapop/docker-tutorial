@@ -12,7 +12,7 @@ class DefaultController extends Controller
         $number = mt_rand(0, 100);
 
         return new Response(
-            '<html><body><h1>Lucky number: '.$number.'</h1></body></html>'
+            '<html><body><h2>Refresh to get your lucky number</h2><h1>Lucky number: '.$number.'</h1></body></html>'
         );
     }
 }
