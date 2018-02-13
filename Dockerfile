@@ -12,7 +12,7 @@ RUN apt-get update \
     && apt-get autoremove -y && apt-get clean && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN composer install
+RUN app/console composer install
 
 COPY sf /var/www/tutorial
 
