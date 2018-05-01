@@ -12,8 +12,7 @@ RUN apt-get update \
     && apt-get autoremove -y && apt-get clean && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY sf /var/www/tutorial
-
-RUN cd /var/www/tutorial && composer install
+#COPY sf /var/www/tutorial/sf
+#RUN cd /var/www/tutorial/sf && composer install
 
 RUN usermod -u 1000 www-data
